@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Posts</title>
+    <link rel="stylesheet" href="/style.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+        body {
+            font-family: 'Roboto', Arial, sans-serif;
+            background: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        h1 {
+            font-size: 36px;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .post-container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            max-width: 800px;
+            margin-bottom: 20px;
+        }
+
+        .user {
+            font-size: 20px;
+            color: #007BFF;
+            margin-bottom: 10px;
+        }
+
+        .cont {
+            font-size: 18px;
+            color: #555;
+            margin-bottom: 10px;
+        }
+
+        .actions {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        a {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        a:hover {
+            background-color: #0056b3;
+            transform: translateY(-3px);
+        }
+
+        .add-post {
+            margin-top: 20px;
+            padding: 12px 25px;
+            background-color: #28a745;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .add-post:hover {
+            background-color: #218838;
+            transform: translateY(-3px);
+        }
+
+        .delete-button {
+            padding: 10px 20px;
+            background-color: #dc3545;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .delete-button:hover {
+            background-color: #c82333;
+            transform: translateY(-3px);
+        }
+    </style>
+</head>
+<body>
+    <h1>Quora Posts</h1>
+
+    <% for(p of posts) { %>
+        <div class="post-container">
+            <h2 class="user">@<%= p.name %></h2>
+            <h3 class="cont"><%= p.content %></h3>
+            <div class="actions">
+                <a href="http://localhost:8080/posts/<%= p.id %>">Read More</a>
+                <a href="http://localhost:8080/posts/<%= p.id %>/edit">Edit</a>
+                <form action="/posts/<%= p.id %>?_method=DELETE" method="post" style="display: inline;">
+                    <button type="submit" class="delete-button">Delete</button>
+                </form>
+            </div>
+        </div>
+    <% } %>
+
+    <a class="add-post" href="http://localhost:8080/posts/new">Add New Post</a>
+</body>
+</html>
