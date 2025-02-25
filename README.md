@@ -1,5 +1,5 @@
 
-# Posting App
+# Quora Posts
 
 This is a simple posting app built with Express.js. Users can create, read, update, and delete posts.
 
@@ -11,7 +11,7 @@ This is a simple posting app built with Express.js. Users can create, read, upda
     ```
 2. Navigate to the project directory:
     ```sh
-    cd /c:/Users/HP/Desktop/apna coll dev/csscoll/projectfinals/posting app
+    cd /posting app
     ```
 3. Install the dependencies:
     ```sh
@@ -42,7 +42,3 @@ This is a simple posting app built with Express.js. Users can create, read, upda
 - ejs
 - method-override
 - uuid
-
-## License
-
-This project is licensed under the MIT License.
